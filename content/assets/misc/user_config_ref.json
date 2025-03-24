@@ -1,0 +1,229 @@
+{
+	"version":0,
+	"exit_code":0,
+	"settings":[
+		{
+			"address":"graphics/display",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Display Mode",
+			"type":"TYPE_OPTION",
+			"type_hint":["Windowed", "Fullscreen", "Exclusive Fullscreen"],
+			"default":1,
+			"info":"Windowed - Runs in a seperate window on the desktop.\n\nFullscreen - Fills the entire screen.\n\nExclusive fullscreen - Runs in fullscreen mode, and prevents other applications from overlaying or interfering."
+		},
+		{
+			"address":"graphics/vsync",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Vsync Mode",
+			"type":"TYPE_OPTION",
+			"type_hint":["Disabled", "Enabled", "Adaptive", "Mailbox"],
+			"default":1,
+			"info":"Synchronizes the frame rate of the game to your monitor to reduce tearing.\n\nDisabled - No Vsync, frames will be displayed as fast as possible, and the frame rate is not limited to the refresh rate of the monitor.\n[Pro: Reduced input lag. | Con: Increased likelhood of tearing at low frame rates.]\n\nEnabled - Default Vsync, frames are synchronized with the monitor's refresh rate to reduce tearing.\n[Pro: Eliminates tearing completely. | Con: Introduces input lag as the game has to wait to display each frame.]\n\nAdaptive Vsync - Vsync adapts to the frame rate, enabling Vsync when the frame rate is below the refresh rate, and disabling it when the frame rate exceeds the refresh rate to reduce input lag.\n[Pro: Minimises input lag at higher frame rates. | Con: During varying frame rates and switching, visual irregularities could appear.]\n\nMailbox - A double-buffered implementation to minimise tearing, displays the most recent frame when possible and does not limit frame rate.\n[Pro: Reduces tearing significantly as frames are only displayed when the monitor refreshes. | Con: Increased input lag compared to disabled.]"
+		},
+		{
+			"address":"graphics/shadow",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Shadow Quality",
+			"type":"TYPE_OPTION",
+			"type_hint":["No Shadows", "Low", "Medium", "High"],
+			"default":2,
+			"info":"Sets the shadow map resolution and shadow filtering quality.\n\nPrimarily affects Video Memory Usage and GPU Performance."
+		},
+		{
+			"address":"graphics/gi",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"GI Quality",
+			"type":"TYPE_OPTION",
+			"type_hint":["No GI", "Low", "Medium", "High"],
+			"default":2,
+			"info":"Global Illumination quality. Primarily affects Video Memory Usage, CPU Performance, and GPU Performance."
+		},
+		{
+			"address":"graphics/aa",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Anti Alising",
+			"type":"TYPE_OPTION",
+			"type_hint":["None", "FXAA", "FXAA & MSAA x2", "FXAA & MSAA x4", "FXAA & MSAA x8", "FXAA & MSAA x8 & TAA"],
+			"default":1,
+			"info":"FXAA - Fast Approxiximate Anti-Aliasing, a lightweight post-effect method that reduces jagged edges by blurring detected edges.\nNegligable impact on GPU Performance.\n\nMSAA - Multi-Sampling Anti-Aliasing, samples multiple pixels around detected edges to construct smoother edges.\nSlight to moderate impact on GPU Performance.\n\nTAA - Temporal Anti-Aliasing, samples pixels from past and current frames to construct smoother edges. Due to the use of previous frames TAA can cleanup effects such as dithering and alpha hashing, however it can also introduce ghosting, smearing, and disocclusion artifacts in motion.\nModerate impact on GPU Performance."
+		},
+		{
+			"address":"graphics/scaling",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"3D Scaling",
+			"type":"TYPE_OPTION",
+			"type_hint":["Bilinear - 0.5x", "FSR - Performace", "FSR - Balanced", "FSR - Quality", "FSR - Ultra Quality", "None"],
+			"default":5,
+			"info":"Bilinear - Halves the resolution by using a simple averaging method.\n[Pro: Significantly reduces the GPU load. | Con: More noticeable loss in quality compared to other techniques.]\n\nFSR - FidelityFX Super Resolution, an upscaling technology developed by AMD.\n\nPerformance :: 50% resolution :: Input; 960 x 540. Output; 1920 x 1080.\nBalanced :: 59% resolution :: Input; 1129 x 635. Output; 1920 x 1080.\nQuality :: 67% resolution :: Input; 1280 x 720. Output; 1920 x 1080.\nUltra Quality :: 77% resolution :: Input; 1477 x 831. Output; 1920 x 1080."
+		},
+		{
+			"address":"graphics/fov",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Field of View",
+			"type":"TYPE_SLIDER",
+			"type_hint":[50, 100, 0.1, 1],
+			"default":75,
+			"info":"The player's field of view in degrees."
+		},
+		{
+			"address":"graphics/ssr",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Reflections",
+			"type":"TYPE_OPTION",
+			"type_hint":["Disabled", "Low", "Medium", "High"],
+			"default":2,
+			"info":"Screen Space Reflections (SSR). Blends reflections into glossy surfaces in screen space using reprojection. Due to being a screen space effect you may see disocclusion artifacts, however likely only for objects of dynamic objects as they are not in the baked reflection probes.\n\nPrimarily affects GPU Performance."
+		},
+		{
+			"address":"graphics/ssao",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Ambient Occlusion",
+			"type":"TYPE_OPTION",
+			"type_hint":["Lowest", "Low", "Medium", "High", "Highest"],
+			"default":2,
+			"info":"Screen Space Ambient Occlusion (SSAO). Darkens interiors, corners, and cavities in screen space using a horizon based model (commonly known as HBAO). Due to being a screen space effect you may see disocclusion artifacts.\n\nPrimarily affects GPU Performance."
+		},
+		{
+			"address":"graphics/ssil",
+			"tab":"graphics",
+			"call":"graphics",
+			"title":"Indirect Lighting",
+			"type":"TYPE_OPTION",
+			"type_hint":["Lowest", "Low", "Medium", "High", "Highest"],
+			"default":2,
+			"info":"Screen Space Indirect Lighting / Illumination (SSIL). Samples the HDR lighting buffer to provide indirect illumination in screen space. Due to being a screen space effect you may see disocclusion artifacts. This effect is especially prone to shimmer and strange behavior.\n\nPrimarily affects GPU Performance."
+		},
+		
+		
+		
+		{
+			"address":"input/forward",
+			"tab":"input",
+			"call":"input",
+			"title":"Move Forward",
+			"type":"TYPE_INPUT",
+			"type_hint":"move_forward",
+			"default":"w",
+		},
+		{
+			"address":"input/backward",
+			"tab":"input",
+			"call":"input",
+			"title":"Move Backward",
+			"type":"TYPE_INPUT",
+			"type_hint":"move_backward",
+			"default":"s",
+		},
+		{
+			"address":"input/left",
+			"tab":"input",
+			"call":"input",
+			"title":"Move Left",
+			"type":"TYPE_INPUT",
+			"type_hint":"move_left",
+			"default":"a",
+		},
+		{
+			"address":"input/right",
+			"tab":"input",
+			"call":"input",
+			"title":"Move Right",
+			"type":"TYPE_INPUT",
+			"type_hint":"move_right",
+			"default":"d",
+		},
+		{
+			"address":"input/checklist",
+			"tab":"input",
+			"call":"input",
+			"title":"Toggle Checklist",
+			"type":"TYPE_INPUT",
+			"type_hint":"toggle_checklist",
+			"default":"tab"
+		},
+		{
+			"address":"input/primary",
+			"tab":"input",
+			"call":"input",
+			"title":"Primary",
+			"type":"TYPE_INPUT",
+			"type_hint":"primary",
+			"default":"LMB",
+		},
+		{
+			"address":"input/secondary",
+			"tab":"input",
+			"call":"input",
+			"title":"Secondary",
+			"type":"TYPE_INPUT",
+			"type_hint":"secondary",
+			"default":"RMB",
+		},
+		{
+			"address":"input/sensitivity",
+			"tab":"input",
+			"call":"input",
+			"title":"Mouse Sensitivity",
+			"type":"TYPE_SLIDER",
+			"type_hint":[0, 3, 0.01, 1],
+			"default":0.3,
+		},
+		{
+			"address":"input/inversion",
+			"tab":"input",
+			"call":"input",
+			"title":"Mouse Inversion",
+			"type":"TYPE_OPTION",
+			"type_hint":["None", "Invert Y", "Invert X", "Inverted"],
+			"default":0,
+		},
+		
+		
+		
+		{
+			"address":"audio/master",
+			"tab":"audio",
+			"call":"audio",
+			"title":"Master Volume",
+			"type":"TYPE_SLIDER",
+			"type_hint":[0, 100, 1, 0],
+			"default":50,
+		},
+		{
+			"address":"audio/music",
+			"tab":"audio",
+			"call":"audio",
+			"title":"Music Volume",
+			"type":"TYPE_SLIDER",
+			"type_hint":[0, 100, 1, 0],
+			"default":50,
+		},
+		{
+			"address":"audio/sfx",
+			"tab":"audio",
+			"call":"audio",
+			"title":"SFX Volume",
+			"type":"TYPE_SLIDER",
+			"type_hint":[0, 100, 1, 0],
+			"default":50,
+		},
+		{
+			"address":"audio/ui",
+			"tab":"audio",
+			"call":"audio",
+			"title":"UI Volume",
+			"type":"TYPE_SLIDER",
+			"type_hint":[0, 100, 1, 0],
+			"default":50,
+		}
+		]
+}

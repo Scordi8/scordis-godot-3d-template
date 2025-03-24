@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://cko1juq8dbxky"]
+
+[ext_resource type="Theme" path="res://content/assets/misc/menu.theme" id="1_avvx2"]
+[ext_resource type="Script" uid="uid://3yam4r682fix" path="res://content/scripts/misc/menu_2d.gd" id="2_qck0c"]
+[ext_resource type="Script" uid="uid://4n01ej6hmqrr" path="res://content/scripts/misc/menu_settings.gd" id="3_wkxxi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qck0c"]
+
+[node name="menu" type="Control" node_paths=PackedStringArray("main_button_container", "control_main", "control_play", "control_settings")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_avvx2")
+script = ExtResource("2_qck0c")
+main_button_container = NodePath("margin/main buttons/VBoxContainer")
+control_main = NodePath("margin/main buttons")
+control_play = NodePath("margin/play")
+control_settings = NodePath("margin/settings")
+
+[node name="margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="main buttons" type="Control" parent="margin"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="margin/main buttons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="title" type="Label" parent="margin/main buttons/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Cool game title screen"
+
+[node name="rtl_play" type="RichTextLabel" parent="margin/main buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+bbcode_enabled = true
+text = "PLAY"
+fit_content = true
+autowrap_mode = 0
+
+[node name="button_play" type="Button" parent="margin/main buttons/VBoxContainer/rtl_play"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qck0c")
+flat = true
+
+[node name="rtl_settings" type="RichTextLabel" parent="margin/main buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+bbcode_enabled = true
+text = "SETTINGS"
+fit_content = true
+autowrap_mode = 0
+
+[node name="button_settings" type="Button" parent="margin/main buttons/VBoxContainer/rtl_settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qck0c")
+flat = true
+
+[node name="rtl_quit" type="RichTextLabel" parent="margin/main buttons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+bbcode_enabled = true
+text = "SHUT DOWN"
+fit_content = true
+autowrap_mode = 0
+
+[node name="button_quit" type="Button" parent="margin/main buttons/VBoxContainer/rtl_quit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qck0c")
+flat = true
+
+[node name="play" type="Control" parent="margin"]
+visible = false
+layout_mode = 2
+
+[node name="settings" type="Control" parent="margin"]
+visible = false
+layout_mode = 2
+script = ExtResource("3_wkxxi")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="margin/settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="tab container" type="VBoxContainer" parent="margin/settings/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="settings container" type="VBoxContainer" parent="margin/settings/HBoxContainer"]
+layout_mode = 2
